@@ -1,0 +1,37 @@
+server:
+  port: 5000
+spring:
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    baseline-description: Flyway Scripts
+    user: ${spring.datasource.username}
+    password: ${spring.datasource.password}
+    url: ${spring.datasource.url}
+    out-of-order: true
+    ignore-migration-patterns: '*:ignored'
+    schemas: boots
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: proselyne
+    url: "jdbc:mysql://awseb-e-ernpitqxep-stack-awsebrdsdatabase-jp1hroz5unpz.ct5s6xebu3li.ca-central-1.rds.amazonaws.com:3306/ebdb"
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database: mysql
+    generate-ddl: true
+    defer-datasource-initialization: true
+  sql:
+    init:
+      platform: mysql
+      mode: always
+      continue-on-error: true
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+
+
+
